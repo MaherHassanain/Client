@@ -1,10 +1,11 @@
 package test.udp;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.*;
 
-public class RBMS {
+public class RBMS implements Serializable{
 private int request_id;
 private LocalDate date;
 private LocalTime time;

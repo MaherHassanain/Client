@@ -24,10 +24,6 @@ public class Client {
 			String inp = sc.nextLine();
 			buf = inp.getBytes();
 			
-			DatagramPacket dpSend = new DatagramPacket(buf, buf.length,ip,1234);
-			
-			ds.send(dpSend);
-			
 			if(inp.equals("REQUEST")) {  
 				
 				
@@ -41,6 +37,12 @@ public class Client {
 				p.add(p1);
 				RBMS booking = new RBMS(1,d,t,2,p);
 				
+				//THIS PART
+				
+//				ByteArrayOutputStream baos = new ByteArrayOutputStream();
+//		        ObjectOutputStream oos = new ObjectOutputStream(baos);
+//		        oos.writeObject(booking);
+				
 				// Serialize to a byte array
 //				ByteArrayOutputStream bStream = new ByteArrayOutputStream();
 //				ObjectOutput oo = new ObjectOutputStream(bStream); 
@@ -53,6 +55,11 @@ public class Client {
 				System.out.println("Request sent");
 //				ds.send(dpSend1);
 			}
+			
+			DatagramPacket dpSend = new DatagramPacket(buf, buf.length,ip,1234);
+			
+			ds.send(dpSend);
+			
 			
 			if(inp.equals("bye")) {
 				break;
